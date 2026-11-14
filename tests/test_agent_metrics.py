@@ -32,4 +32,20 @@ class AgentMetricTests(unittest.TestCase):
         with self.assertRaises(ValueError): aggregate(cases,traces,[])
         with self.assertRaises(ValueError): aggregate(cases,traces,[{'query_id':'a','answer_grade':2,'citation_support':[]}])
 
+    def test_context_quality_requires_explicit_grade_and_reason_when_requested(self):
+        cases = [{'id':'a','answerable':True}]
+        traces = [{'query_id':'a','status':'answered','events':[],'citations':[]}]
+        review = {
+            'query_id':'a',
+            'answer_grade':2,
+            'citation_support':[],
+            'context_grade':1,
+            'context_reason':'Evidence is relevant but misses a condition.',
+        }
+        with self.assertRaisesRegex(ValueError, 'context_grade'):
+            aggregate(cases, traces, [{'query_id':'a','answer_grade':2,'citation_support':[]}],
+                      require_context_grade=True)
+        result = aggregate(cases, traces, [review], require_context_grade=True)
+        self.assertEqual(result['context_quality'], {'0':0,'1':1,'2':0,'N':1,'mean':1.0})
+
 if __name__ == '__main__': unittest.main()

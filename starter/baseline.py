@@ -64,10 +64,12 @@ class TfidfIndex:
         norm = math.sqrt(sum(value * value for value in vector.values())) or 1
         return {term: value / norm for term, value in vector.items()}
 
-    def search(self, question, top_k=3):
+    def search(self, question, top_k=3, filters=None):
         query = self._vector(Counter(tokenize(question)))
         results = []
         for chunk, vector in zip(self.chunks, self.vectors):
+            if filters and any(chunk['metadata'].get(key) != value for key, value in filters.items()):
+                continue
             score = sum(value * vector.get(term, 0) for term, value in query.items())
             if score > 0:
                 results.append({**chunk, 'score': score, 'strategy': 'tfidf'})

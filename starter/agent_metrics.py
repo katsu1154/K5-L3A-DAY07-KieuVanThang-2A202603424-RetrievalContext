@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 
-def aggregate(cases, traces, reviews):
+def aggregate(cases, traces, reviews, *, require_context_grade=False):
     """Cases: id/answerable; traces: query_id/status/events/citations.
 
     Reviews: query_id, answer_grade (0..2 for answerable), citation_support
@@ -19,6 +19,7 @@ def aggregate(cases, traces, reviews):
     review_by_id = {r['query_id']: r for r in reviews}
     out = {'cases': len(cases), 'provider_errors': 0, 'tool_use': {'n': 0, 'N': 0},
            'grounded_answer': {'0': 0, '1': 0, '2': 0, 'N': 0, 'mean': None},
+           'context_quality': {'0': 0, '1': 0, '2': 0, 'N': 0, 'mean': None},
            'citation_validity': {'n': 0, 'N': 0}, 'answer_citation_coverage': {'n': 0, 'N': 0},
            'abstention': {'n': 0, 'N': 0}, 'false_abstention': {'n': 0, 'N': 0}}
     for case in cases:
@@ -38,6 +39,17 @@ def aggregate(cases, traces, reviews):
         if not isinstance(events, list) or not isinstance(citations, list): raise ValueError(f'{cid}: events/citations không hợp lệ')
         if not isinstance(support, list) or len(support) != len(citations) or any(type(v) is not bool for v in support):
             raise ValueError(f'{cid}: cần một nhãn boolean cho mỗi citation')
+        context_grade = r.get('context_grade')
+        if case['answerable'] and context_grade is None and require_context_grade:
+            raise ValueError(f'{cid}: thiếu context_grade')
+        if context_grade is not None:
+            if type(context_grade) is not int or context_grade not in (0, 1, 2):
+                raise ValueError(f'{cid}: context_grade phải là 0, 1 hoặc 2')
+            reason = r.get('context_reason')
+            if not isinstance(reason, str) or not reason.strip():
+                raise ValueError(f'{cid}: context_grade cần context_reason')
+            out['context_quality'][str(context_grade)] += 1
+            out['context_quality']['N'] += 1
         out['tool_use']['N'] += 1
         out['tool_use']['n'] += any(e.get('event') == 'search' for e in events)
         out['citation_validity']['n'] += sum(support)
@@ -63,6 +75,8 @@ def aggregate(cases, traces, reviews):
             out['abstention']['n'] += correct
     g = out['grounded_answer']
     if g['N']: g['mean'] = (g['1'] + 2*g['2']) / g['N']
+    c = out['context_quality']
+    if c['N']: c['mean'] = (c['1'] + 2*c['2']) / c['N']
     return out
 
 
@@ -73,11 +87,20 @@ def main():
     parser.add_argument('--reviews', type=Path, required=True)
     parser.add_argument('--split', choices=('dev', 'test'), required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--require-context-grade', action='store_true')
     args = parser.parse_args()
     def load(path): return json.loads(path.read_text(encoding='utf-8'))
     cases = [c for c in load(args.cases) if c.get('split') == args.split]
     if not cases: raise ValueError('không có case trong split')
-    report = {'split': args.split, **aggregate(cases, load(args.traces), load(args.reviews))}
+    report = {
+        'split': args.split,
+        **aggregate(
+            cases,
+            load(args.traces),
+            load(args.reviews),
+            require_context_grade=args.require_context_grade,
+        ),
+    }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False, indent=2))

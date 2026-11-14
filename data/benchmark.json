@@ -1,0 +1,214 @@
+[
+  {
+    "id": "q01",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "Which kind of light does the passage say produces stronger relief in an object?",
+    "expected_answer": "A single, distinct luminous body produces stronger relief than diffused light.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 4, "evidence": "A single and distinct luminous body causes stronger relief in the object than a diffused light;"}],
+    "filter": {"volume": "Volume 1"}
+  },
+  {
+    "id": "q02",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "Why does the passage advise painters to use light colors for figures?",
+    "expected_answer": "Dark colors make figures have too little relief and appear inconspicuous from a distance.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 5, "evidence": "if you put them in dark colours, they will be in too slight relief and inconspicuous from a distance."}],
+    "filter": null
+  },
+  {
+    "id": "q03",
+    "split": "dev",
+    "type": "direct",
+    "question": "According to the passage, why are colors at a distance indistinguishable in shadow?",
+    "expected_answer": "The darker object cannot transmit its image through a brighter atmosphere because the lesser brightness is absorbed by the greater.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 6, "evidence": "All colours at a distance are undistinguishable in shadow, because an object which is not in the highest light is incapable of transmitting its image to the eye through an atmosphere more luminous than itself; since the lesser brightness must be absorbed by the greater."}],
+    "filter": null
+  },
+  {
+    "id": "q04",
+    "split": "dev",
+    "type": "direct",
+    "question": "What does the passage say happens to the arm between the elbow and wrist when it is bent or extended?",
+    "expected_answer": "Its length does not increase.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 7, "evidence": "The arm between the elbow and wrist never increases by being bent or extended."}],
+    "filter": null
+  },
+  {
+    "id": "q05",
+    "split": "dev",
+    "type": "direct",
+    "question": "Which side of a leaf is turned toward the sky, and what does that help it receive?",
+    "expected_answer": "Its upper side faces the sky to help it receive dew.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 8, "evidence": "A leaf always turns its upper side towards the sky so that it may the better receive, on all its surface, the dew which drops gently from the atmosphere."}],
+    "filter": null
+  },
+  {
+    "id": "q06",
+    "split": "dev",
+    "type": "direct",
+    "question": "What two subjects should a youth learn first, in order, according to the passage?",
+    "expected_answer": "Perspective first, then the proportions of objects.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 9, "evidence": "The youth should first learn perspective, then the proportions of objects."}],
+    "filter": null
+  },
+  {
+    "id": "q07",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "What problem does the passage identify with painting several historical scenes at different levels on one chapel wall?",
+    "expected_answer": "Changing levels and viewpoints creates multiple points of sight on one wall.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 10, "evidence": "one historical subject on one level with a landscape and buildings, and then go up a step and paint another, varying the point [of sight], and then a third and a fourth, in such a way as that on one wall there are 4 points of sight"}],
+    "filter": null
+  },
+  {
+    "id": "q08",
+    "split": "dev",
+    "type": "direct",
+    "question": "What visible sign does the passage use to identify the motion of the air around a running horse?",
+    "expected_answer": "The movement of dust thrown up by the horse's running.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 11, "evidence": "The motion of the air is seen by the motion of the dust thrown up by the horse's running"}],
+    "filter": null
+  },
+  {
+    "id": "q09",
+    "split": "dev",
+    "type": "direct",
+    "question": "What does the editor's note say about sketches and manuscript references for the Mona Lisa?",
+    "expected_answer": "It says no sketches are known for the portrait and the manuscript notes do not mention it.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 12, "evidence": "no sketches are known for the portrait of \"Mona Lisa\", nor do the MS. notes ever allude to it"}],
+    "filter": null
+  },
+  {
+    "id": "q10",
+    "split": "dev",
+    "type": "conditional",
+    "question": "If an angle is chosen for the greatest resistance, which kind of angle does the passage recommend?",
+    "expected_answer": "The most acute angle.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 16, "evidence": "That angle will offer the greatest resistance which is most acute, and the most obtuse will be the weakest."}],
+    "filter": {"volume": "Volume 2"}
+  },
+  {
+    "id": "q11",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "Compared with human inventions serving the same end, what qualities does the passage attribute to Nature's inventions?",
+    "expected_answer": "They are more beautiful, simpler, and more to the purpose.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 17, "evidence": "it will never devise any inventions more beautiful, nor more simple, nor more to the purpose than Nature does;"}],
+    "filter": {"volume": "Volume 2"}
+  },
+  {
+    "id": "q12",
+    "split": "dev",
+    "type": "direct",
+    "question": "What relative appearance of the sea and dry land does the passage conclude with?",
+    "expected_answer": "The sea appears higher than the dry land.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 18, "evidence": "the sea a c b looks higher than the dry land."}],
+    "filter": null
+  },
+  {
+    "id": "q13",
+    "split": "dev",
+    "type": "direct",
+    "question": "What does the passage say the motions of a dead thing cause many living beings to do?",
+    "expected_answer": "Flee with pain, lamentation, and cries.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 25, "evidence": "The motions of a dead thing will make many living ones flee with pain and lamentation and cries."}],
+    "filter": null
+  },
+  {
+    "id": "q14",
+    "split": "dev",
+    "type": "paraphrase",
+    "question": "According to the letter, what caused the author to investigate the matter with great care?",
+    "expected_answer": "The addressee's excessive love and the benefits given to the author compelled him to investigate carefully.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 26, "evidence": "your excessive love for me, which gave rise to the benefits you have conferred on me [Footnote 55] is that which has also compelled me to the utmost painstaking in seeking out and diligently investigating the cause"}],
+    "filter": {"volume": "Volume 2"}
+  },
+  {
+    "id": "q15",
+    "split": "dev",
+    "type": "direct",
+    "question": "Which does the passage regard as better to imitate: antique work or modern things?",
+    "expected_answer": "Antique work.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 27, "evidence": "The imitation of antique work is better than that of the modern things."}],
+    "filter": null
+  },
+  {
+    "id": "q16",
+    "split": "test",
+    "type": "paraphrase",
+    "question": "How does the passage say the picture became well-known and popular?",
+    "expected_answer": "Through copies of every description.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 1, "evidence": "other picture of the Renaissance has become so wellknown and popular through copies of every description."}],
+    "filter": null
+  },
+  {
+    "id": "q17",
+    "split": "test",
+    "type": "direct",
+    "question": "Which subject does Section XI discuss?",
+    "expected_answer": "Sculpture.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 13, "evidence": "The notes on Sculpture."}],
+    "filter": null
+  },
+  {
+    "id": "q18",
+    "split": "test",
+    "type": "direct",
+    "question": "In the dome section, what does the passage say seems to be intended above the reverted buttresses between the windows?",
+    "expected_answer": "Iron anchors or chains.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 15, "evidence": "Section of the Dome with reverted buttresses between the windows, above which iron anchors or chains seem to be intended."}],
+    "filter": null
+  },
+  {
+    "id": "q19",
+    "split": "test",
+    "type": "direct",
+    "question": "What do the shells open to feed on?",
+    "expected_answer": "Animalcules that swim in the water.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 20, "evidence": "they open to feed themselves on the animalcules that swim in the water"}],
+    "filter": null
+  },
+  {
+    "id": "q20",
+    "split": "test",
+    "type": "direct",
+    "question": "Which animal does Leonardo say a flying machine should imitate?",
+    "expected_answer": "The bat.",
+    "gold": [{"source_id": "gutenberg-5000", "page": 22, "evidence": "Remember that your flying machine must imitate no other than the bat"}],
+    "filter": null
+  },
+  {
+    "id": "q21",
+    "split": "dev",
+    "question": "What ISBN-13 is listed for this Project Gutenberg electronic edition?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain",
+    "absence_reason": "The full extracted corpus contains no ISBN entry; the Gutenberg identifier is not an ISBN-13."
+  },
+  {
+    "id": "q22",
+    "split": "dev",
+    "question": "What was the air temperature in degrees Celsius when Leonardo made the two window-ornament sketches?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain",
+    "absence_reason": "The corpus identifies the sketches but records no temperature for them; a full-text scan found no temperature, Celsius, or Fahrenheit references."
+  },
+  {
+    "id": "q23",
+    "split": "test",
+    "question": "What was the exact date when the two window-ornament sketches in MS. S. K. M. III 72b were made?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain",
+    "absence_reason": "The corpus mentions the two sketches but does not give a date for their creation."
+  },
+  {
+    "id": "q24",
+    "split": "test",
+    "question": "How many centimeters wide are the two window-ornament sketches in MS. S. K. M. III 72b?",
+    "answerable": false,
+    "expected_behavior": "search_and_abstain",
+    "absence_reason": "The corpus says the manuscript contains two sketches but provides no dimensions for those sketches; other dimensions in the book refer to different drawings."
+  }
+]

@@ -48,6 +48,14 @@ class BaselineTests(unittest.TestCase):
         self.assertTrue(trace['hit3'])
         self.assertFalse(trace['context_hit'])
 
+    def test_tfidf_search_applies_metadata_filter(self):
+        index = TfidfIndex(self.chunks)
+        self.assertEqual(
+            [result['id'] for result in index.search('hoàn tiền', filters={'year': 2025})],
+            ['a'],
+        )
+        self.assertEqual(index.search('hoàn tiền', filters={'year': 2024}), [])
+
     def test_convert_day6_and_preserve_filter(self):
         raw_chunk = {'chunk_id': 'c1', 'document_id': 'doc', 'source': 'doc.pdf', 'page': 1,
                      'text': 'bảy ngày', 'metadata': {'year': 2025}}
