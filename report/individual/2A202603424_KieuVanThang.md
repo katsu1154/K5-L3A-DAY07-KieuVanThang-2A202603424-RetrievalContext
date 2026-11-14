@@ -2,7 +2,7 @@
 
 ## Dữ liệu và benchmark
 
-- **Nguồn:** ebook Project Gutenberg #5000, mỗi chunk giữ source URL, page và metadata truy nguyên. Trước khi tái phân phối nội dung, kiểm tra điều kiện sử dụng áp dụng cho khu vực của người nộp.
+- **Nguồn:** Leonardo da Vinci, The Notebooks of Leonardo Da Vinci — Complete, dịch bởi Jean Paul Richter, 1888. Project Gutenberg, eBook #5000. Toàn văn: gutenberg.org/ebooks/5000 (bản plain text: 5000.txt.utf-8; truy cập 14/11/2026). Kiểm tra giấy phép và quy định tại khu vực sử dụng trước khi tái phân phối.
 - **Vector store:** collection `day6_B` của Day 6, 3.121 chunks; Chroma 1.5.9.
 - **Embedding:** `sentence-transformers/all-MiniLM-L6-v2` qua Chroma ONNX, vector 384 chiều; dùng lại embedder và persistent store Day 6 qua `Day6ChromaRetriever`.
 - **Benchmark:** 24 câu: dev 15 có đáp án + 2 thiếu evidence; test 5 có đáp án + 2 thiếu evidence. Evidence của 20 câu có đáp án được kiểm tra với chunk đúng source/page trong collection.
